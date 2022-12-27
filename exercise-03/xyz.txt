@@ -1,0 +1,18 @@
+
+X1: abc
+X2: abcabc
+X3: abcabcabc
+X4: abcabcabcabc
+X5: abcabcabcabcabc
+
+Y1: c
+Y2: acb
+Y3: bca
+Y4: abcab
+Y5: bacba
+
+Z1: abcabc
+Z2: c
+Z3: abcc
+Z4: abc
+Z5: acb
