@@ -2,38 +2,30 @@
 
 int main (int argc, char *argv[]) {
     char c;
-    int line_count = 0;
-    int word_count = 0;
-    int char_count = 0;
-    int is_space = 1;
+    int line_count = 0, word_count = 0, char_count = 0;
+    int is_whitespace = 1;
 
-    /*endless loop until*/
-    while(1) {
-        c = getchar();
-        
-        /*break if end of file is reached*/
-        if (c == EOF) {
-            break;
-        }
-        
+    /* read all chars until EOF is reached */
+    while((c = getchar()) != EOF) {
         /* treat all ascii < 32 as whitespaces*/
-        else if(c <= 32) {
-            if(c=='\n') {
+        if (c <= 32) {
+            if (c=='\n') {
                 line_count++;
             }
-            is_space = 1;
-        }
-        /**/
-        else {
-            if(is_space == 1) {
+            is_whitespace = 1;
+
+        /* current char is not whitespace */
+        } else {
+            /* previous char was whitespace */
+            if (is_whitespace) {
                 word_count++;
-                is_space = 0;
+                is_whitespace = 0;
             }
         }
         char_count++;
     }
 
-    /*print calculated scores*/
+    /* print calculated scores */
     printf("%d %d %d\n" , line_count, word_count, char_count);
     return 0;
 }
