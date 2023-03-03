@@ -15,12 +15,9 @@ int main (int argc, char *argv[]) {
             is_whitespace = 1;
 
         /* current char is not whitespace */
-        } else {
-            /* previous char was whitespace */
-            if (is_whitespace) {
+        } else if (is_whitespace) {
                 word_count++;
                 is_whitespace = 0;
-            }
         }
         char_count++;
     }
