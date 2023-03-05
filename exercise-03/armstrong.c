@@ -1,42 +1,30 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(int argc, char *argv[]){
-    int i, current_num, sum, amount_of_digits, last_digit;
-    int input;
-    
-    // read command line parameter
-    if (argc == 2)
-        input = atoi(argv[1]);
-    else
-        input = 0;
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return 1;
+    }
 
-    // calculate armstrong numbers
-    for(i=1; i<=input; i++) {
-        sum = 0;
-        // Copy the value of current_num for processing
-        current_num = i;
-        // check the amount of amount_of_digits of current_num
-        amount_of_digits = (int) log10(current_num) + 1;
+    /* check all numbers from 1 to input */
+    int input = atoi(argv[1]);
+    for (int i = 1; i < input; i++) {
+        int no_digits = log10(i) + 1;
 
-        /* Calculate sum of power of amount_of_digits */
-        while(current_num > 0) {
-            // only extract the last digit of current_num
-            last_digit = current_num % 10;
-
-            // Find sum of power of amount_of_digits
-            // Use ceil() function to overcome any rounding errors by pow()
-            sum = sum + ceil(pow(last_digit, amount_of_digits));
-
-            // remove last digit to 
-            current_num = current_num / 10;
+        int tmp = i;
+        int sum = 0;
+        while (tmp != 0) {
+            int last_digit = tmp % 10;
+            sum += pow(last_digit, no_digits);
+            tmp /= 10;
         }
 
-        // check if number really is armstrong number
-        if(i == sum) {
+        if (sum == i) {
             printf("%d\n", i);
         }
     }
+
     return 0;
 }
