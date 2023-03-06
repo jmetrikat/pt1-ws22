@@ -18,26 +18,26 @@ int main(int argc, char *argv[]) {
     }
 
     /* check for prime */
-    int i = 2;
+    int factor = 2;
 
     while (fac != 1) {
         int is_prime = 1;
-        
-        for (int j = 2; j < i; j++) {
-            if (i % j == 0) {
+
+        for (int j = 2; j < factor; j++) {
+            if (factor % j == 0) {
                 is_prime = 0;
                 break;
             }
         }
 
-        if (fac % i == 0 && is_prime) {
-            fac /= i;
-            printf("%d\n", i);
+        if (fac % factor == 0 && is_prime) {
+            fac /= factor;
+            printf("%d\n", factor);
         }
 
         /* increment if the current number can't be factor */
-        if (fac % i != 0 || !is_prime) {
-            i++;
+        if (fac % factor != 0 || !is_prime) {
+            factor++;
         }
     }
 
