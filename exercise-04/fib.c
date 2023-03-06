@@ -4,7 +4,7 @@
 int main(int argc, char *argv[]) {
     /* initializes array for fib numbers */
     int input = atoi(argv[1]);
-    long long *fib_numbers = (long long *) malloc(input * sizeof(long long));
+    long long *fib_numbers = (long long *)malloc(input * sizeof(long long));
 
     fib_numbers[0] = 0;
     fib_numbers[1] = 1;

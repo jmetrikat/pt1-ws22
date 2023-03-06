@@ -4,7 +4,7 @@
 int main(int argc, char *argv[]) {
     /* get command line input and create dynamic array */
     int input = atoi(argv[1]);
-    int *is_prime = malloc(input * sizeof(int));
+    int *is_prime = (int *)malloc(input * sizeof(int));
 
     /* initalize the array with true */
     for (int i = 0; i < input; i++) {
