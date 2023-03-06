@@ -3,14 +3,38 @@
 
 #include "grading_table.h"
 
-void a(grading_table_ptr curr);
-void b(grading_table_ptr curr);
-int c(grading_table_ptr curr, int val);
-int d(grading_table_ptr curr, int val);
-int e(grading_table_ptr curr, int val);
+void a(grading_table_ptr curr) {
+    printf("%u hat in %u %u Punkt(e) erreicht.\n", curr->matrikelnummer, curr->serie, curr->punkte);
+}
+
+void b(grading_table_ptr curr) {
+    if (curr->punkte < 10) {
+        printf("%u %u\n", curr->matrikelnummer, curr->serie);
+    }
+}
+
+int c(grading_table_ptr curr, int val) {
+    return ++val;
+}
+
+int d(grading_table_ptr curr, int val) {
+    if (curr->punkte > val) {
+        return curr->punkte;
+    }
+
+    return val;
+}
+
+int e(grading_table_ptr curr, int val) {
+    if (curr->serie == 3) {
+        val += curr->punkte;
+    }
+
+    return val;
+}
 
 int main(int argc, char *argv[]) {
-    if (argc < 2 || argc > 3) {
+    if (argc < 2 || argc > 3 || strlen(argv[1]) > 1) {
         fprintf(stderr, "Usage: %s (a|b|c|d|e) [filename]\n", argv[0]);
         return 1;
     }
@@ -40,35 +64,6 @@ int main(int argc, char *argv[]) {
             return 1;
     }
 
+    delete_list(table_pt);
     return 0;
-}
-
-void a(grading_table_ptr curr) {
-    printf("%u hat in %u %u Punkt(e) erreicht.\n", curr->matrikelnummer, curr->serie, curr->punkte);
-}
-
-void b(grading_table_ptr curr) {
-    if (curr->punkte < 10) {
-        printf("%u %u\n", curr->matrikelnummer, curr->serie);
-    }
-}
-
-int c(grading_table_ptr curr, int val) {
-    return ++val;
-}
-
-int d(grading_table_ptr curr, int val) {
-    if (curr->punkte > val) {
-        return curr->punkte;
-    }
-
-    return val;
-}
-
-int e(grading_table_ptr curr, int val) {
-    if (curr->serie == 3) {
-        val += curr->punkte;
-    }
-
-    return val;
 }
