@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
+    if (argc == 1) {
+        fprintf(stderr, "Usage: %s <word1> [<word2> ...]\n", argv[0]);
+        return 1;
+    }
+
     /* iterate over every command line parameter aka given word */
     for (int v = 1; v < argc; v++) {
         int is_palindrome = 1;
@@ -20,5 +25,6 @@ int main(int argc, char *argv[]){
             printf("YES\n");
         }
     }
+
     return 0;
 }

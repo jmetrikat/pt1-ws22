@@ -2,21 +2,26 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    /* initializes array for fib numbers */
-    int input = atoi(argv[1]);
-    long long *fib_numbers = (long long *)malloc(input * sizeof(long long));
-
-    fib_numbers[0] = 0;
-    fib_numbers[1] = 1;
-
-    /* calculate fib numbers */
-    for (int i = 2; i<=input; i++) {
-        fib_numbers[i] = fib_numbers[i-2] + fib_numbers[i-1];
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return 1;
     }
 
-    printf("%lld\n" ,fib_numbers[input]);
+    /* initialize array for fib numbers */
+    int input = atoi(argv[1]);
+    long long *fib = (long long *)malloc((input + 1) * sizeof(long long));
+
+    fib[0] = 0;
+    fib[1] = 1;
+
+    /* calculate fib numbers */
+    for (int i = 2; i <= input; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    printf("%lld\n", fib[input]);
 
     /* free the space occupied by the array */
-    free(fib_numbers);
+    free(fib);
     return 0;
 }

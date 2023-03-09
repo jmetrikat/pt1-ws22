@@ -2,6 +2,11 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return 1;
+    }
+
     /* get command line input and create dynamic array */
     int input = atoi(argv[1]);
     int *is_prime = (int *)malloc(input * sizeof(int));
@@ -14,7 +19,7 @@ int main(int argc, char *argv[]) {
     /* sieve of erathotstenes */
     for (int j = 2; j < input; j++) {
         if (is_prime[j] == 1) {
-            for (int k = j * 2; k < input; k = k + j){
+            for (int k = j * 2; k < input; k = k + j) {
                 is_prime[k] = 0;
             }
         }
