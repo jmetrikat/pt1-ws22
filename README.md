@@ -1,2 +1,2 @@
 # 👨‍🏫 Programmiertechnik I
-Exercises in the subject "Programmiertechnik I" at Hasso Plattner Institute.
+Exercises in the subject "Programmiertechnik I" at Hasso-Plattner-Institute.
