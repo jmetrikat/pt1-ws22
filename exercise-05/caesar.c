@@ -23,10 +23,17 @@ void caesar(char *str, int shift) {
 
         printf("%c", encr_char);
     }
+
     printf("\n");
+    return;
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        fprintf(stderr, "Usage: %s encrypt|decrypt <shift>\n", argv[0]);
+        return 1;
+    }
+
     int shift = 0;
     size_t bufsize = 64;
     char *buffer = (char *)malloc(bufsize * sizeof(char));
