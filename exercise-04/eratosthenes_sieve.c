@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     /* print all primes */
     for (int l = 2; l < input; l++) {
         if (is_prime[l]) {
-            printf("%d\n" ,l);
+            printf("%d\n", l);
         }
     }
 

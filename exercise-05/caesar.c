@@ -8,7 +8,7 @@ void caesar(char *str, int shift) {
 
     for (int i = 0; i < strlen(str); i++) {
         if (str[i] >= 'a' && str[i] <= 'z') {
-            encr_char = (str[i] - 'a'+ shift) % 26 + 'a';
+            encr_char = (str[i] - 'a' + shift) % 26 + 'a';
             while (encr_char < 'a') {
                 encr_char += 26;
             }

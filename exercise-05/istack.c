@@ -1,6 +1,6 @@
-#include <stdlib.h>
-
 #include "istack.h"
+
+#include <stdlib.h>
 
 /* defines the global error variable */
 enum errorT error;
